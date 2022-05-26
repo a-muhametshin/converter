@@ -7,7 +7,9 @@ const initialState = {
 }
 
 export const getConversionRatesAsync = createAsyncThunk('currency/fetchConversionRates', async (conversionId) => {
-  const response = await fetchConversionRate(conversionId)
+  const result = await fetchConversionRate(conversionId)
+  const formattedRes = Object.values(result)
+  const response = {[formattedRes[0]]: formattedRes[1]}
   return response
 })
 
