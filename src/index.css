@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.MuiBox-root {
+  BACKGROUND: url(https://i.pinimg.com/originals/de/63/ed/de63edc8d346cf27e9b3806eb3325bdc.gif) no-repeat;
+  background-size: 50%;
+}

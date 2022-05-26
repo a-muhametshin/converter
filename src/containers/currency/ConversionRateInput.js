@@ -16,7 +16,7 @@ const ConversionRateInput = ({ currencyToId }) => {
   const conversionRate = conversionRates ? conversionRates[currencyToId] : null
   const value = conversionRate ? conversionRate[currencyFrom] * valueFrom : ''
 
-  return <CurrencyValueInput disabled={true} value={value} currencyId={currency?.id} />
+  return <CurrencyValueInput disabled={true} value={value ? currencyToId + ' ' + value : 0 } currencyId={currency?.id} />
 }
 
 export default ConversionRateInput

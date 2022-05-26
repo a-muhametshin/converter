@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Grid, Typography } from '@mui/material'
-
+import useInterval from '../../helper/use-interval'
 import { getCurrencyListAsync, selectCurrencyList } from './currencyListSlice'
 import { set as setCurrencyFrom, selectCurrencyFrom } from './currencyFromSlice'
 import { setByIndex as setCurrenciesToByIndex, selectCurrenciesTo } from './currenciesToSlice'
@@ -48,6 +48,12 @@ export function Currency() {
       })
     }
   }, [currenciesTo, currencyFrom, dispatch, haveFromAndToCurrencies])
+  
+  useInterval(() => {
+    currenciesTo.forEach((cid) => {   
+      dispatch(getConversionRatesAsync(cid))
+  })
+  }, 5000*60);
 
   return (
     <>
