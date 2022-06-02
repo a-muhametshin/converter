@@ -14,7 +14,7 @@ export const fetchCurrencyList = () => {
 
 export const fetchConversionRate = (conversionId) => {
   const url = `${BASE_CURRENCY_CONVERTER_URL}?currency=${conversionId}`
-  return getFetch(url).then((response) => response.data)
+  return conversionId ? getFetch(url).then((response) => response.data) : null
 }
 
 export const getFetch = (url) => {
